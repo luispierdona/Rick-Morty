@@ -7,16 +7,6 @@
   </mat-card-subtitle>
   <img [src]="data.image" [alt]="data.image" />
 
-  <!-- <mat-list role="list">
-    <mat-list-item role="listitem">
-      {{ 'Status: ' + data.status + ' | ' + 'Species: ' + data.species + ' | ' + 'Gender: ' + data.gender }}
-    </mat-list-item>
-    <mat-list-item role="listitem">Item 2</mat-list-item>
-    <mat-list-item role="listitem">Item 3</mat-list-item>
-  </mat-list> -->
-
-  
-
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -35,6 +25,24 @@
       </mat-expansion-panel-header>
       <p>This is the primary content of the panel.</p>
     </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ 'Locations' }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let item of locations">
+          {{ item.name }}
+        </mat-list-item>
+    </mat-list>
+    </mat-expansion-panel>
+
   </mat-accordion>
+
+  
+
+
 
 </div>
