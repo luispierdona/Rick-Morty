@@ -12,6 +12,8 @@ export class DashboardComponent implements OnInit {
   loading: boolean = false;
   listCharacters: Character[] = [];
 
+  gridColumns = 4;
+
   constructor(private service: InfoService) { }
 
   ngOnInit(): void {

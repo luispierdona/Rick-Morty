@@ -10,12 +10,24 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { InfoService } from './services/info.service';
+import { DashCardComponent } from './components/dash-card/dash-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CharacterInfoOverlayComponent } from './components/character-info-overlay/character-info-overlay.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    DashCardComponent,
+    CharacterInfoOverlayComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +35,15 @@ import { InfoService } from './services/info.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule,
+    FlexLayoutModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [InfoService],
   bootstrap: [AppComponent]

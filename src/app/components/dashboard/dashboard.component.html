@@ -1,7 +1,10 @@
 <div *ngIf="loading">loading...</div>
 
-<mat-grid-list cols="3" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let items of listCharacters; index as i">
-    {{i}}
-  </mat-grid-tile>
-</mat-grid-list>  
+<div class="content" fxLayoutAlign="center center">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" style="max-width: 1200px;">
+    <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="25%"
+      *ngFor="let item of listCharacters; index as i">
+      <app-dash-card [character]="item"></app-dash-card>
+    </div>
+  </div>
+</div>
