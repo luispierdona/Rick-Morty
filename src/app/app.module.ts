@@ -8,6 +8,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
+import { InfoService } from './services/info.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [InfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
