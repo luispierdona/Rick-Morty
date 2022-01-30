@@ -1,7 +1,7 @@
 <div *ngIf="loading">loading...</div>
 
 <div class="content" fxLayoutAlign="center center">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid" style="max-width: 1200px;">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" style="max-width: 1400px;">
     <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="25%"
       *ngFor="let item of listCharacters; index as i">
       <app-dash-card [character]="item"></app-dash-card>

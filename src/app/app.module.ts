@@ -20,6 +20,10 @@ import { CharacterInfoOverlayComponent } from './components/character-info-overl
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CharacterInfoTableComponent } from './components/character-info-table/character-info-table.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { MatInputModule } from '@angular/material/input';
     DashboardComponent,
     ToolbarComponent,
     DashCardComponent,
-    CharacterInfoOverlayComponent
+    CharacterInfoOverlayComponent,
+    CharacterInfoTableComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,9 @@ import { MatInputModule } from '@angular/material/input';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatChipsModule,
   ],
   providers: [InfoService],
   bootstrap: [AppComponent]

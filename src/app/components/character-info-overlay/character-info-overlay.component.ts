@@ -22,8 +22,6 @@ export class CharacterInfoOverlayComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.data);
-
     this.listEpisodes();
   }
 
@@ -38,11 +36,14 @@ export class CharacterInfoOverlayComponent implements OnInit {
 
     this.service.getEpisodes(this.episodes.toString()).subscribe({
       next: (v) => {
-        console.log(v);
-        this.locations = v;
+        if (v.length > 0) {
+          this.locations = v;
+        } else {
+          this.locations = [v];
+        }
       },
-      error: (e) => {console.error(e); this.loading = false;},
-      complete: () => {console.info('complete'); this.loading = false;}
+      error: (e) => { console.error(e); this.loading = false; },
+      complete: () => { console.info('complete'); this.loading = false; }
     })
 
   }

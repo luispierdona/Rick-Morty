@@ -22,8 +22,9 @@ export class DashCardComponent implements OnInit {
 
   viewInfo() {
     const dialogRef = this.dialog.open(CharacterInfoOverlayComponent, {
-      // width: '1024px',
-      // height: '500px',
+      width: '1024px',
+      minHeight: '500px',
+      maxHeight: '90vh',
       data: this.character
     });
   }
