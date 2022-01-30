@@ -11,7 +11,6 @@ export class DashboardComponent implements OnInit {
 
   loading: boolean = false;
   listCharacters: Character[] = [];
-
   gridColumns = 4;
 
   constructor(private service: InfoService) { }
@@ -24,14 +23,13 @@ export class DashboardComponent implements OnInit {
     this.loading = true;
     this.service.listCharacters().subscribe({
       next: (v) => {
-        console.log(v); 
+        console.log(v);
         this.listCharacters = v.results;
-        console.log(this.listCharacters); 
+        console.log(this.listCharacters);
       },
-      error: (e) => {console.error(e); this.loading = false;},
-      complete: () => {console.info('complete'); this.loading = false;}
+      error: (e) => { console.error(e); this.loading = false; },
+      complete: () => { console.info('complete'); this.loading = false; }
     })
   }
-
 
 }

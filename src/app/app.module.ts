@@ -24,6 +24,7 @@ import { CharacterInfoTableComponent } from './components/character-info-table/c
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatProgressSpinnerModule,
     MatTableModule,
     MatChipsModule,
+    MatPaginatorModule,
   ],
   providers: [InfoService],
   bootstrap: [AppComponent]
