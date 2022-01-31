@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Character } from 'src/app/models/character.models';
 import { CharacterInfoOverlayComponent } from '../character-info-overlay/character-info-overlay.component';
