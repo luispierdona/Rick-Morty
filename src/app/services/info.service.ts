@@ -3,11 +3,10 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable } from 'rxjs';
 import { ListAPIResponse } from '../models/commons.models';
-import { Character } from '../models/character.models';
-import { Location } from '../models/location.models';
 
 const APIs = {
   listCharacters: `${environment.apiUrl}character/`,
+  listCharactersWithParam: `${environment.apiUrl}character/?page={page}`,
   singleLocation: `${environment.apiUrl}location/{id}`,
   episodesOf: `${environment.apiUrl}location/{episodes}`,
 };
@@ -19,23 +18,10 @@ export class InfoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listCharacters(): Observable<ListAPIResponse> {
-    return this.httpClient.get<ListAPIResponse>(APIs.listCharacters)
-      .pipe(
-        map((data) => {
-          return data;
-        }),
-        catchError((err) => {
-          console.error(err);
-          throw err;
-        }
-        )
-      );
-  }
+  listCharacters(page: number): Observable<ListAPIResponse> {
+    const url = APIs.listCharactersWithParam.split('{page}').join(`${page}`);
 
-  getSingleLocation(id: number): Observable<ListAPIResponse> {
-    const url = APIs.singleLocation.split('{id}').join(`${id}`);
-    return this.httpClient.get<ListAPIResponse>(`${url}`)
+    return this.httpClient.get<ListAPIResponse>(url)
       .pipe(
         map((data) => {
           return data;

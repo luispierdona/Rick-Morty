@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatChipsModule,
     MatPaginatorModule,
+    MatSnackBarModule,
   ],
   providers: [InfoService],
   bootstrap: [AppComponent]

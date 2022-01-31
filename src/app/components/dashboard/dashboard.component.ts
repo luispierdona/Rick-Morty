@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Character } from 'src/app/models/character.models';
 import { InfoService } from 'src/app/services/info.service';
 
@@ -13,23 +15,36 @@ export class DashboardComponent implements OnInit {
   listCharacters: Character[] = [];
   gridColumns = 4;
 
-  constructor(private service: InfoService) { }
+  pageSize = 20;
+  totalSize = 0;
+  pageIndex = 0;
+
+  constructor(private service: InfoService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.getListCharacters();
+    this.getListCharacters(1);
   }
 
-  getListCharacters() {
+  getListCharacters(page: number) {
     this.loading = true;
-    this.service.listCharacters().subscribe({
+    this.service.listCharacters(page).subscribe({
       next: (v) => {
-        console.log(v);
         this.listCharacters = v.results;
-        console.log(this.listCharacters);
+        this.totalSize = v.info.count ? v.info.count : 0;
       },
       error: (e) => { console.error(e); this.loading = false; },
-      complete: () => { console.info('complete'); this.loading = false; }
+      complete: () => {
+        this.loading = false;
+        this._snackBar.open('Amazing info loaded', 'Close', {
+          duration: 3000,
+          panelClass: "snackbar"
+        });
+      }
     })
+  }
+
+  getServerData(event: PageEvent) {
+    this.getListCharacters(event?.pageIndex);
   }
 
 }

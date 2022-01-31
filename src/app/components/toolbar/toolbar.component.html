@@ -1,3 +1,14 @@
 <mat-toolbar>
-  <span>{{ 'Rick and Morty | Done by Luis Matias Pierdona'}}</span>
+  <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+    <!-- Left elements -->
+    <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+      <div class="h3 mb-0">{{ 'Rick and Morty' }}</div>
+    </div>
+    <!-- Right elements -->
+    <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+      <mat-chip-list>
+        <mat-chip color="accent" selected>{{ 'Done by Luis Matias Pierdona' }}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
 </mat-toolbar>

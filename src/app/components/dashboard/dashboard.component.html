@@ -1,10 +1,22 @@
-<div *ngIf="loading">loading...</div>
-
 <div class="content" fxLayoutAlign="center center">
+
+  <!-- Cards -->
   <div fxLayout="row wrap" fxLayoutGap="16px grid" style="max-width: 1400px;">
     <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="25%"
       *ngFor="let item of listCharacters; index as i">
       <app-dash-card [character]="item"></app-dash-card>
     </div>
+  </div>
+
+  <!-- Paginator -->
+  <div class="footer">
+    <mat-paginator fixed showFirstLastButtons #paginator 
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[4, 8, 12, 20]" 
+      [length]="totalSize"
+      [pageIndex]="pageIndex"
+      (page)="getServerData($event)">
+    </mat-paginator>
+
   </div>
 </div>
